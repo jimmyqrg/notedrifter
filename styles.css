@@ -288,27 +288,25 @@ body:not(.js-ready) .hero-bg {
     display: inline-flex;
     align-items: end;
     justify-content: center;
-    gap: 6px;
+    gap: 7px;
     margin: 0 0 22px;
-    height: 38px;
+    height: 42px;
 }
 
+/* Hollow / outlined pill shapes — matches the design's embossed-glass mark. */
 .hero-mark span {
     display: block;
-    width: 8px;
-    background: linear-gradient(
-        180deg,
-        rgba(255, 255, 255, 0.92) 0%,
-        rgba(255, 255, 255, 0.55) 100%
-    );
-    border-radius: 1px;
-    box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.18),
-        0 0 18px rgba(255, 255, 255, 0.15);
+    width: 11px;
+    background: rgba(255, 255, 255, 0.04);
+    border: 1.5px solid rgba(255, 255, 255, 0.85);
+    border-radius: 5px;
+    box-shadow: 0 0 14px rgba(255, 255, 255, 0.18),
+        inset 0 0 8px rgba(255, 255, 255, 0.08);
 }
 
-.hero-mark span:nth-child(1) { height: 28px; }
-.hero-mark span:nth-child(2) { height: 38px; }
-.hero-mark span:nth-child(3) { height: 32px; }
+.hero-mark span:nth-child(1) { height: 30px; }
+.hero-mark span:nth-child(2) { height: 42px; }
+.hero-mark span:nth-child(3) { height: 36px; }
 
 .hero-title {
     font-family: var(--font-display);
@@ -324,12 +322,12 @@ body:not(.js-ready) .hero-bg {
 
 .hero-tagline {
     font-family: var(--font-body);
+    font-style: italic;
     font-weight: 200;
-    font-size: clamp(14px, 1.45vw, 17px);
-    color: #cfcfd6;
-    margin: 16px 0 30px;
-    letter-spacing: 0.18em;
-    text-transform: uppercase;
+    font-size: clamp(14px, 1.4vw, 17px);
+    color: #c8c8d0;
+    margin: 10px 0 30px;
+    letter-spacing: 0.04em;
 }
 
 /* =========================================================================
@@ -525,6 +523,22 @@ body:not(.js-ready) .hero-bg {
     text-shadow: 0 0 40px rgba(255, 255, 255, 0.18);
 }
 
+/* Thin divider above the EDITOR EXAMPLES heading — matches the design. */
+.section-divider {
+    width: min(560px, 80%);
+    height: 1px;
+    margin: 0 auto 56px;
+    border: 0;
+    background: linear-gradient(
+        90deg,
+        rgba(255, 255, 255, 0) 0%,
+        rgba(255, 255, 255, 0.32) 18%,
+        rgba(255, 255, 255, 0.42) 50%,
+        rgba(255, 255, 255, 0.32) 82%,
+        rgba(255, 255, 255, 0) 100%
+    );
+}
+
 .editor-row {
     margin: 0 auto 60px;
     max-width: 1080px;
@@ -566,8 +580,8 @@ body:not(.js-ready) .hero-bg {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 18px;
-    max-width: 920px;
-    margin: 0 auto 70px;
+    max-width: 1080px;
+    margin: 0 auto 60px;
 }
 
 .editor-ui-tile {
@@ -597,7 +611,7 @@ body:not(.js-ready) .hero-bg {
 .editor-demo {
     position: relative;
     margin: 0 auto;
-    max-width: 980px;
+    max-width: 1080px;
     aspect-ratio: 16 / 10;
     border-radius: 8px;
     overflow: hidden;

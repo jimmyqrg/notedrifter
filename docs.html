@@ -3,15 +3,15 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="NoteDrifter documentation — getting started, file formats, color, library and shortcuts." />
-    <title>Docs — NoteDrifter</title>
+    <meta name="description" content="NoteDrifter documentation — coming soon. AI music with style and visualization." />
+    <title>Docs — Coming Soon — NoteDrifter</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="styles.css" />
     <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Crect x='4' y='3' width='2' height='14' fill='%23fff'/%3E%3Crect x='9' y='3' width='2' height='14' fill='%23fff'/%3E%3Crect x='14' y='3' width='2' height='14' fill='%23fff'/%3E%3Crect x='3' y='18' width='14' height='2' fill='%23fff'/%3E%3C/svg%3E" />
 </head>
-<body class="page-docs">
+<body class="page-coming-soon">
     <header class="site-header">
         <a href="index.html" class="brand" aria-label="NoteDrifter home">
             <span class="brand-mark" aria-hidden="true">
@@ -26,138 +26,24 @@
         </nav>
     </header>
 
-    <main class="page">
-        <section class="page-head">
-            <p class="eyebrow">Documentation</p>
-            <h1 class="page-title">Drift like you mean it</h1>
-            <p class="page-lead">Everything you need to load a MIDI file, design a visualization, and export a clip you'll be proud to ship.</p>
-        </section>
+    <main class="coming-soon">
+        <div class="coming-soon-bg" aria-hidden="true"></div>
+        <div class="coming-soon-content">
+            <p class="coming-soon-eyebrow">Documentation</p>
+            <h1 class="coming-soon-title">Coming Soon</h1>
+            <p class="coming-soon-lead">
+                The full NoteDrifter documentation is being written.<br />
+                Install guides, the color system, orientation, shortcuts &amp; more — on the way.
+            </p>
 
-        <div class="page-shell">
-            <!-- Sidebar -->
-            <aside class="docs-sidebar" aria-label="Docs navigation">
-                <nav>
-                    <p class="docs-side-heading">Getting Started</p>
-                    <a href="#install" class="docs-side-link">Install</a>
-                    <a href="#first-render" class="docs-side-link">Your first render</a>
+            <ul class="coming-soon-list" role="list">
+                <li><span class="cs-bullet">·</span> Installation &amp; first render</li>
+                <li><span class="cs-bullet">·</span> Tracks, layers &amp; the color system</li>
+                <li><span class="cs-bullet">·</span> Orientation, shortcuts &amp; export targets</li>
+                <li><span class="cs-bullet">·</span> Library, palettes &amp; live embeds</li>
+            </ul>
 
-                    <p class="docs-side-heading">Concepts</p>
-                    <a href="#tracks" class="docs-side-link">Tracks &amp; layers</a>
-                    <a href="#color" class="docs-side-link">Color system</a>
-                    <a href="#orientation" class="docs-side-link">Orientation</a>
-
-                    <p class="docs-side-heading">Reference</p>
-                    <a href="#shortcuts" class="docs-side-link">Shortcuts</a>
-                    <a href="#export" class="docs-side-link">Exports</a>
-                    <a href="#library" class="docs-side-link">Library</a>
-                </nav>
-            </aside>
-
-            <!-- Body -->
-            <article class="docs-body">
-                <section id="install">
-                    <h2>Install</h2>
-                    <p>NoteDrifter ships as a single binary for macOS, Windows, and Linux. Pick a build, drop it in your apps folder, and launch.</p>
-                    <pre class="code-block"><code>brew install --cask notedrifter
-# or
-curl -fsSL https://notedrifter.app/install.sh | sh</code></pre>
-                    <p class="callout callout--info">First launch downloads the visualization pack (~280 MB). You can swap packs later from <em>Preferences → Visuals</em>.</p>
-                </section>
-
-                <section id="first-render">
-                    <h2>Your first render</h2>
-                    <ol class="numbered-list">
-                        <li>Drag a <code>.mid</code> or <code>.musicxml</code> file onto the NoteDrifter window.</li>
-                        <li>Pick a preset from the <strong>Visualizer</strong> panel — try <em>Drift</em> or <em>Aurora</em>.</li>
-                        <li>Hit the big <span class="kbd">Render</span> button. NoteDrifter encodes a 4K H.265 video and a transparent PNG sequence in parallel.</li>
-                    </ol>
-                </section>
-
-                <section id="tracks">
-                    <h2>Tracks &amp; layers</h2>
-                    <p>Each MIDI track becomes a layer in the timeline. Layers stack along the Z axis — the topmost layer renders closest to the camera.</p>
-                    <ul class="bulleted-list">
-                        <li><strong>Solo / Mute</strong> — toggle visibility per layer without altering the source.</li>
-                        <li><strong>Velocity → opacity</strong> — softer notes fade by default, configurable per layer.</li>
-                        <li><strong>Channel routing</strong> — split a single MIDI channel into multiple visual layers via key range.</li>
-                    </ul>
-                </section>
-
-                <section id="color">
-                    <h2>Color system</h2>
-                    <p>Every line of every layer can be its own color. NoteDrifter uses an HSL palette internally so gradients between voices stay perceptually even.</p>
-                    <div class="swatches" aria-label="Default palette">
-                        <span class="swatch" style="--c: hsl(320 100% 60%)"></span>
-                        <span class="swatch" style="--c: hsl(295 100% 62%)"></span>
-                        <span class="swatch" style="--c: hsl(270 95% 65%)"></span>
-                        <span class="swatch" style="--c: hsl(220 95% 65%)"></span>
-                        <span class="swatch" style="--c: hsl(200 100% 60%)"></span>
-                        <span class="swatch" style="--c: hsl(160 80% 55%)"></span>
-                        <span class="swatch" style="--c: hsl(40 100% 60%)"></span>
-                        <span class="swatch" style="--c: hsl(10 100% 62%)"></span>
-                    </div>
-                    <p>Bring your own palette with <code>palette.toml</code> — see the <a href="#library" class="inline-link">Library</a> chapter.</p>
-                </section>
-
-                <section id="orientation">
-                    <h2>Orientation</h2>
-                    <p>Notes can rise, fall, sweep horizontally, or swirl around a focal point. Change orientation under <em>View → Camera</em> or with the keyboard.</p>
-                    <div class="orientation-grid">
-                        <div class="orient-card">
-                            <span class="orient-icon" aria-hidden="true">↑</span>
-                            <strong>Rise</strong>
-                            <p>Default — notes climb from the keyboard.</p>
-                        </div>
-                        <div class="orient-card">
-                            <span class="orient-icon" aria-hidden="true">↓</span>
-                            <strong>Fall</strong>
-                            <p>Classic Synthesia look. Notes descend to the keys.</p>
-                        </div>
-                        <div class="orient-card">
-                            <span class="orient-icon" aria-hidden="true">→</span>
-                            <strong>Sweep</strong>
-                            <p>Time travels left-to-right; great for studio loops.</p>
-                        </div>
-                        <div class="orient-card">
-                            <span class="orient-icon" aria-hidden="true">⟳</span>
-                            <strong>Orbit</strong>
-                            <p>Notes circle a center; cinematic for chordal pieces.</p>
-                        </div>
-                    </div>
-                </section>
-
-                <section id="shortcuts">
-                    <h2>Shortcuts</h2>
-                    <table class="shortcut-table">
-                        <thead>
-                            <tr><th>Action</th><th>macOS</th><th>Windows / Linux</th></tr>
-                        </thead>
-                        <tbody>
-                            <tr><td>Play / pause</td><td><span class="kbd">Space</span></td><td><span class="kbd">Space</span></td></tr>
-                            <tr><td>Toggle solo on layer</td><td><span class="kbd">⌥</span> + click</td><td><span class="kbd">Alt</span> + click</td></tr>
-                            <tr><td>Cycle orientation</td><td><span class="kbd">⌘</span> <span class="kbd">O</span></td><td><span class="kbd">Ctrl</span> <span class="kbd">O</span></td></tr>
-                            <tr><td>Render</td><td><span class="kbd">⌘</span> <span class="kbd">⏎</span></td><td><span class="kbd">Ctrl</span> <span class="kbd">↵</span></td></tr>
-                            <tr><td>Frame current measure</td><td><span class="kbd">F</span></td><td><span class="kbd">F</span></td></tr>
-                        </tbody>
-                    </table>
-                </section>
-
-                <section id="export">
-                    <h2>Exports</h2>
-                    <p>Pick what you need at render-time. Multiple targets render simultaneously when your machine can keep up.</p>
-                    <ul class="bulleted-list">
-                        <li><strong>Video</strong> — H.264 / H.265 / ProRes 4444 with optional alpha.</li>
-                        <li><strong>Image sequence</strong> — PNG, EXR, or WebP at any frame rate.</li>
-                        <li><strong>Live embed</strong> — copy a snippet that runs on any web page (it powers the demo on the home page).</li>
-                    </ul>
-                </section>
-
-                <section id="library">
-                    <h2>Library</h2>
-                    <p>The Library is a tagged grid of presets, palettes, and reusable pieces of motion. Drop any project into the Library to share it across machines or with your team.</p>
-                    <p class="callout">A preset is just a folder of TOML files; revision-control it like code.</p>
-                </section>
-            </article>
+            <a href="index.html" class="btn btn--ghost coming-soon-cta">Back to Home</a>
         </div>
     </main>
 

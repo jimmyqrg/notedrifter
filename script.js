@@ -91,12 +91,12 @@
     }
 
     /* -------------------------------------------------------------- *
-     * Scroll reveal — applied to common sections (home + inner pages)
+     * Scroll reveal — applied to common sections
      * -------------------------------------------------------------- */
     const revealTargets = document.querySelectorAll(
         ".intro-text, .feature-tile, .features-lead, .feature-list > li, " +
             ".section-title, .editor-row, .editor-caption, .editor-ui-tile, .editor-demo, " +
-            ".page-head, .docs-body section, .reel-demo, .reel-cta"
+            ".coming-soon-eyebrow, .coming-soon-list li"
     );
 
     revealTargets.forEach((el, idx) => {
@@ -135,35 +135,6 @@
             target.scrollIntoView({ behavior: "smooth", block: "start" });
         });
     });
-
-    /* -------------------------------------------------------------- *
-     * Docs sidebar — scroll-spy current section
-     * -------------------------------------------------------------- */
-    const sideLinks = document.querySelectorAll(".docs-side-link");
-    const docSections = document.querySelectorAll(".docs-body section[id]");
-    if (sideLinks.length && docSections.length && "IntersectionObserver" in window) {
-        const linkByHash = new Map();
-        sideLinks.forEach((l) => {
-            const href = l.getAttribute("href") || "";
-            if (href.startsWith("#")) linkByHash.set(href.slice(1), l);
-        });
-
-        const ioSpy = new IntersectionObserver(
-            (entries) => {
-                entries.forEach((entry) => {
-                    const id = entry.target.id;
-                    const link = linkByHash.get(id);
-                    if (!link) return;
-                    if (entry.isIntersecting) {
-                        sideLinks.forEach((l) => l.classList.remove("is-current"));
-                        link.classList.add("is-current");
-                    }
-                });
-            },
-            { rootMargin: "-30% 0px -60% 0px", threshold: 0 }
-        );
-        docSections.forEach((s) => ioSpy.observe(s));
-    }
 
     /* -------------------------------------------------------------- *
      * Demo player controls are handled by assets/piano-viz.js.

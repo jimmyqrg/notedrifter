@@ -174,25 +174,4 @@
         docSections.forEach((s) => ioSpy.observe(s));
     }
 
-    /* -------------------------------------------------------------- *
-     * Visualizer preview — fullscreen shell (decorative transport stays visual-only)
-     * -------------------------------------------------------------- */
-    const editorDemo = document.querySelector(".editor-demo");
-    const fsBtn = document.querySelector(".editor-demo-fs");
-    if (editorDemo && fsBtn) {
-        fsBtn.addEventListener("click", () => {
-            if (!document.fullscreenElement) {
-                editorDemo.requestFullscreen?.().catch(() => {});
-            } else {
-                document.exitFullscreen?.().catch(() => {});
-            }
-        });
-        document.addEventListener("fullscreenchange", () => {
-            const isFs = document.fullscreenElement === editorDemo;
-            fsBtn.setAttribute(
-                "aria-label",
-                isFs ? "Exit fullscreen preview" : "Fullscreen preview"
-            );
-        });
-    }
 })();

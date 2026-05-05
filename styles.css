@@ -15,8 +15,8 @@
     --container-max: 1180px;
     --gutter: clamp(20px, 4vw, 56px);
 
-    --font-display: "Inter", system-ui, -apple-system, sans-serif;
-    --font-body: "Inter", system-ui, -apple-system, sans-serif;
+    --font-display: "Poiret One", "Josefin Sans", system-ui, sans-serif;
+    --font-body: "Josefin Sans", system-ui, -apple-system, sans-serif;
     --font-script: "Great Vibes", "Segoe Script", cursive;
 
     --transition: 280ms cubic-bezier(0.22, 0.61, 0.36, 1);
@@ -118,6 +118,7 @@ p {
     letter-spacing: 0.02em;
     color: var(--fg);
     font-size: 14px;
+    text-transform: lowercase;
     transition: opacity var(--transition);
 }
 
@@ -164,11 +165,11 @@ p {
 
 .nav-link {
     position: relative;
-    font-size: 13px;
-    font-weight: 400;
+    font-size: 14px;
+    font-weight: 300;
     color: rgba(255, 255, 255, 0.55);
-    letter-spacing: 0.06em;
-    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    text-transform: lowercase;
     transition: color var(--transition);
     padding: 4px 0;
 }
@@ -282,24 +283,24 @@ body:not(.js-ready) .hero-bg {
 
 .hero-title {
     font-family: var(--font-display);
-    font-weight: 200;
-    font-size: clamp(52px, 9.5vw, 112px);
+    font-weight: 400;
+    font-size: clamp(54px, 10vw, 120px);
     margin: 0;
-    letter-spacing: 0.06em;
-    line-height: 1.05;
-    color: #ffffff;
-    text-shadow: 0 0 80px rgba(255, 255, 255, 0.22),
-        0 0 24px rgba(255, 255, 255, 0.12);
+    letter-spacing: 0.04em;
+    line-height: 1;
+    color: #f4f4f7;
+    text-shadow: 0 0 60px rgba(255, 255, 255, 0.28),
+        0 0 18px rgba(255, 255, 255, 0.18);
 }
 
 .hero-tagline {
     font-family: var(--font-body);
-    font-style: normal;
-    font-weight: 300;
-    font-size: clamp(14px, 1.35vw, 17px);
-    color: rgba(255, 255, 255, 0.82);
-    margin: 14px 0 34px;
-    letter-spacing: 0.06em;
+    font-style: italic;
+    font-weight: 200;
+    font-size: clamp(14px, 1.4vw, 17px);
+    color: #c8c8d0;
+    margin: 10px 0 30px;
+    letter-spacing: 0.04em;
 }
 
 /* =========================================================================
@@ -492,14 +493,14 @@ body:not(.js-ready) .hero-bg {
 
 .section-title {
     font-family: var(--font-display);
-    font-weight: 200;
-    font-size: clamp(32px, 5.5vw, 68px);
+    font-weight: 400;
+    font-size: clamp(36px, 6vw, 72px);
     text-align: center;
-    margin: 0 0 56px;
-    letter-spacing: 0.28em;
-    color: #fff;
+    margin: 0 0 60px;
+    letter-spacing: 0.18em;
+    color: #f0f0f4;
     text-transform: uppercase;
-    text-shadow: 0 0 48px rgba(255, 255, 255, 0.15);
+    text-shadow: 0 0 40px rgba(255, 255, 255, 0.18);
 }
 
 /* Thin divider above the EDITOR EXAMPLES heading — matches the design. */
@@ -624,72 +625,6 @@ body:not(.js-ready) .hero-bg {
     line-height: 1;
 }
 
-.editor-demo-fs {
-    position: absolute;
-    top: 14px;
-    right: 14px;
-    width: 40px;
-    height: 40px;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    padding: 0;
-    border: 1px solid rgba(255, 255, 255, 0.14);
-    border-radius: 6px;
-    background: rgba(0, 0, 0, 0.45);
-    color: rgba(255, 255, 255, 0.88);
-    cursor: pointer;
-    transition: background var(--transition), border-color var(--transition),
-        color var(--transition), transform var(--transition);
-}
-
-.editor-demo-fs:hover {
-    background: rgba(255, 255, 255, 0.08);
-    border-color: rgba(255, 255, 255, 0.28);
-    color: #fff;
-    transform: scale(1.04);
-}
-
-.editor-demo-controls {
-    position: absolute;
-    bottom: 18px;
-    left: 50%;
-    transform: translateX(-50%);
-    display: flex;
-    align-items: center;
-    gap: 14px;
-    padding: 6px 14px;
-    border-radius: 999px;
-    background: rgba(0, 0, 0, 0.55);
-    backdrop-filter: blur(6px);
-    -webkit-backdrop-filter: blur(6px);
-    border: 1px solid var(--border-soft);
-}
-
-.ctrl-btn {
-    background: transparent;
-    border: 0;
-    color: rgba(255, 255, 255, 0.85);
-    width: 28px;
-    height: 28px;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    border-radius: 50%;
-    cursor: pointer;
-    transition: background var(--transition), color var(--transition), transform var(--transition);
-}
-
-.ctrl-btn:hover {
-    background: rgba(255, 255, 255, 0.12);
-    color: #fff;
-    transform: scale(1.08);
-}
-
-.ctrl-btn--play {
-    background: rgba(255, 255, 255, 0.12);
-}
-
 /* =========================================================================
    Coming-soon pages (docs, demo reel)
    Same dark / crystalline aesthetic as the home hero, with a single
@@ -754,7 +689,7 @@ body:not(.js-ready) .hero-bg {
 
 .coming-soon-title {
     font-family: var(--font-display);
-    font-weight: 200;
+    font-weight: 400;
     font-size: clamp(56px, 11vw, 140px);
     line-height: 1;
     letter-spacing: 0.06em;
@@ -849,7 +784,7 @@ body:not(.js-ready) .hero-bg {
 
 .docs-title {
     font-family: var(--font-display);
-    font-weight: 200;
+    font-weight: 400;
     font-size: clamp(48px, 8.5vw, 100px);
     line-height: 1;
     letter-spacing: 0.06em;
@@ -947,7 +882,7 @@ body:not(.js-ready) .hero-bg {
 
 .docs-body h2 {
     font-family: var(--font-display);
-    font-weight: 300;
+    font-weight: 400;
     font-size: clamp(24px, 2.6vw, 34px);
     color: var(--fg);
     margin: 0 0 18px;

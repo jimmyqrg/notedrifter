@@ -3,15 +3,15 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="NoteDrifter documentation — coming soon. AI music with style and visualization." />
-    <title>Docs — Coming Soon — NoteDrifter</title>
+    <meta name="description" content="NoteDrifter documentation — render piano-style music videos in minutes. Learn projects, parts, note color, key color, orientation, speed, backgrounds, and exports." />
+    <title>Docs — NoteDrifter</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@100;200;300;400;500;600&family=Poiret+One&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="styles.css" />
     <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Crect x='4' y='3' width='2' height='14' fill='%23fff'/%3E%3Crect x='9' y='3' width='2' height='14' fill='%23fff'/%3E%3Crect x='14' y='3' width='2' height='14' fill='%23fff'/%3E%3Crect x='3' y='18' width='14' height='2' fill='%23fff'/%3E%3C/svg%3E" />
 </head>
-<body class="page-coming-soon">
+<body class="page-docs">
     <header class="site-header">
         <a href="index.html" class="brand" aria-label="NoteDrifter home">
             <span class="brand-mark" aria-hidden="true">
@@ -26,25 +26,305 @@
         </nav>
     </header>
 
-    <main class="coming-soon">
-        <div class="coming-soon-bg" aria-hidden="true"></div>
-        <div class="coming-soon-content">
-            <p class="coming-soon-eyebrow">Documentation</p>
-            <h1 class="coming-soon-title">Coming Soon</h1>
-            <p class="coming-soon-lead">
-                The full NoteDrifter documentation is being written.<br />
-                Install guides, the color system, orientation, shortcuts &amp; more — on the way.
-            </p>
+    <main>
+        <!-- Docs hero -->
+        <section class="docs-hero" aria-label="Documentation header">
+            <div class="docs-hero-bg" aria-hidden="true"></div>
+            <div class="docs-hero-content">
+                <p class="coming-soon-eyebrow">Documentation</p>
+                <h1 class="docs-title">NoteDrifter</h1>
+                <p class="docs-lead">
+                    Render a piano-style music video in minutes. Drop in a MIDI or
+                    audio file, choose a style, and let NoteDrifter handle the rest —
+                    or fine-tune every instrument, color, angle, and beat.
+                </p>
+            </div>
+        </section>
 
-            <ul class="coming-soon-list" role="list">
-                <li><span class="cs-bullet">·</span> Installation &amp; first render</li>
-                <li><span class="cs-bullet">·</span> Tracks, layers &amp; the color system</li>
-                <li><span class="cs-bullet">·</span> Orientation, shortcuts &amp; export targets</li>
-                <li><span class="cs-bullet">·</span> Library, palettes &amp; live embeds</li>
-            </ul>
+        <!-- Docs body — sticky sidebar + long-form content -->
+        <section class="docs-shell">
+            <aside class="docs-sidebar" aria-label="Docs navigation">
+                <nav>
+                    <p class="docs-side-heading">Getting started</p>
+                    <a class="docs-side-link" href="#welcome">Welcome</a>
+                    <a class="docs-side-link" href="#install">Install &amp; sign in</a>
+                    <a class="docs-side-link" href="#first-render">Your first render</a>
 
-            <a href="index.html" class="btn btn--ghost coming-soon-cta">Back to Home</a>
-        </div>
+                    <p class="docs-side-heading">Working in a project</p>
+                    <a class="docs-side-link" href="#new-project">New project</a>
+                    <a class="docs-side-link" href="#dashboard">Dashboard</a>
+                    <a class="docs-side-link" href="#editor">The editor</a>
+
+                    <p class="docs-side-heading">Configurations</p>
+                    <a class="docs-side-link" href="#project-vs-part">Project vs. Part</a>
+                    <a class="docs-side-link" href="#note-color">Note color</a>
+                    <a class="docs-side-link" href="#key-color">Key color</a>
+                    <a class="docs-side-link" href="#direction-angle">Direction &amp; angle</a>
+                    <a class="docs-side-link" href="#speed">Note speed</a>
+                    <a class="docs-side-link" href="#background">Background</a>
+
+                    <p class="docs-side-heading">Output</p>
+                    <a class="docs-side-link" href="#export">Export</a>
+                    <a class="docs-side-link" href="#shortcuts">Shortcuts</a>
+                </nav>
+            </aside>
+
+            <article class="docs-body">
+                <section id="welcome">
+                    <h2>Welcome</h2>
+                    <p>
+                        NoteDrifter is an AI-assisted piano visualization tool. It turns
+                        a MIDI file (or any track with detectable notes) into a clean,
+                        animated piano video — keys lit, falling note bars, soft glow,
+                        synced to the second. Every visual decision — colors per
+                        instrument, key tinting, scroll direction, camera angle, speed,
+                        background — is exposed in a single <em>Configurations</em> panel.
+                    </p>
+                    <p>
+                        These docs walk through the app in the same order you'll meet
+                        it: <em>get in</em>, <em>open a project</em>, <em>tune the look</em>,
+                        <em>render</em>.
+                    </p>
+                </section>
+
+                <section id="install">
+                    <h2>Install &amp; sign in</h2>
+                    <p>
+                        Open the desktop app or visit the web build, then choose
+                        <em>Sign up for free</em>. You'll be asked for an email,
+                        a password, and a confirmation. Existing users can switch to
+                        <em>Login</em> from the same screen.
+                    </p>
+                    <div class="callout callout--info">
+                        Your library, custom palettes, and unfinished projects all sync
+                        to your account. You can sign in on a new machine and pick up
+                        right where you left off.
+                    </div>
+                </section>
+
+                <section id="first-render">
+                    <h2>Your first render</h2>
+                    <p>The fastest path from "open the app" to "video file":</p>
+                    <ol class="numbered-list">
+                        <li>
+                            From <em>Get Started</em>, drop a MIDI or audio file onto
+                            <em>Drop a File in</em> — or click <em>Upload a File</em>.
+                        </li>
+                        <li>Click <em>Design your own style</em>.</li>
+                        <li>
+                            In the editor, tap the <em>Play</em> button to preview. The
+                            piano lights up, bars rise, and the timeline scrubs along.
+                        </li>
+                        <li>
+                            When you're happy, hit <em>Export</em> in the top-right.
+                            NoteDrifter renders a 1080p MP4 by default.
+                        </li>
+                    </ol>
+                    <p>
+                        That's it — you have a finished music video. Everything below is
+                        about tuning <em>how</em> it looks.
+                    </p>
+                </section>
+
+                <section id="new-project">
+                    <h2>New project</h2>
+                    <p>
+                        From the dashboard, click <em>New</em> in the top-right. You'll
+                        see two paths:
+                    </p>
+                    <ul class="bulleted-list">
+                        <li>
+                            <strong>Create a new project from scratch</strong> — start with
+                            a blank canvas. NoteDrifter generates a sensible style from your
+                            uploaded track and visualization seed.
+                        </li>
+                        <li>
+                            <strong>Import a project</strong> — bring in an existing
+                            <code>.ndrift</code> file from a friend or your library.
+                            Everything (parts, palettes, angle, speed) is preserved.
+                        </li>
+                    </ul>
+                </section>
+
+                <section id="dashboard">
+                    <h2>Dashboard</h2>
+                    <p>
+                        The left sidebar holds five tabs:
+                        <em>Dashboard</em>, <em>Projects</em>, <em>Design</em>,
+                        <em>Preferences</em>, <em>Settings</em>. New users land on
+                        <em>No Projects Yet</em> with a single <em>Create a new one</em>
+                        action — clicking it opens the New Project flow.
+                    </p>
+                    <p>
+                        <em>Design</em> stores reusable style packs. <em>Preferences</em>
+                        controls editor behavior (theme, default note speed, render
+                        directory). <em>Settings</em> is account-level (email, password,
+                        plan).
+                    </p>
+                </section>
+
+                <section id="editor">
+                    <h2>The editor</h2>
+                    <p>
+                        Every project opens in the editor. Top of the screen: a piano
+                        keyboard mirroring the playhead. Above it: rising note bars.
+                        Bottom of the screen: the timeline, plus transport (play,
+                        previous, next, fullscreen).
+                    </p>
+                    <p>
+                        Two icons sit in the lower-right: a <em>gear</em> opens
+                        <em>Configurations</em>, and the <em>fullscreen</em> arrows
+                        toggle a distraction-free preview.
+                    </p>
+                    <div class="callout">
+                        Tip — drag the playhead anywhere on the timeline; the keys and
+                        bars update instantly. Useful for spot-checking a single bar.
+                    </div>
+                </section>
+
+                <section id="project-vs-part">
+                    <h2>Project vs. Part Settings</h2>
+                    <p>
+                        Configurations has two tabs at the top: <em>Project Settings</em>
+                        and <em>Part Settings</em>.
+                    </p>
+                    <ul class="bulleted-list">
+                        <li>
+                            <strong>Project Settings</strong> apply to the whole video —
+                            note speed, background, default angle.
+                        </li>
+                        <li>
+                            <strong>Part Settings</strong> apply per instrument layer —
+                            note color and key color for <em>Instrument 1</em>,
+                            <em>Instrument 2</em>, and so on. Each part can also have a
+                            longer descriptive name (visible as <em>"Instrument Long Long
+                            Long Name"</em> in the panel).
+                        </li>
+                    </ul>
+                </section>
+
+                <section id="note-color">
+                    <h2>Note color</h2>
+                    <p>
+                        Under <em>Style → Note Color</em> you'll see one row per
+                        instrument with a colored swatch on the right. Click a swatch to
+                        recolor every rising bar belonging to that instrument. Use the
+                        <em>«</em> and <em>»</em> arrows to swap with the row above or
+                        below.
+                    </p>
+                    <div class="swatches" aria-hidden="true">
+                        <span class="swatch" style="--c: #ff5e5e"></span>
+                        <span class="swatch" style="--c: #ff8a3d"></span>
+                        <span class="swatch" style="--c: #ffd166"></span>
+                        <span class="swatch" style="--c: #5cd97a"></span>
+                        <span class="swatch" style="--c: #4cc7ff"></span>
+                        <span class="swatch" style="--c: #b48bff"></span>
+                        <span class="swatch" style="--c: #ff7ad4"></span>
+                    </div>
+                </section>
+
+                <section id="key-color">
+                    <h2>Key color</h2>
+                    <p>
+                        Under <em>Key Color</em> you can give each instrument its own
+                        tint when notes <em>land</em> on the keys at the bottom of the
+                        screen. The <em>Match Note Color</em> toggle is a shortcut: when
+                        on, key tint mirrors the note color above. Turn it off for
+                        independent control — e.g. white bars with red key flashes.
+                    </p>
+                </section>
+
+                <section id="direction-angle">
+                    <h2>Direction &amp; angle</h2>
+                    <p>
+                        Note bars usually rise upward, but you can change the
+                        <em>Direction</em> per row. Combined with <em>Angle</em> (default
+                        <code>25.00°</code>), you can pitch the camera in any plane —
+                        from a flat front view (<code>0°</code>) to the dramatic angled
+                        sheet shown in <em>Editor Examples</em>.
+                    </p>
+                    <div class="orientation-grid">
+                        <div class="orient-card">
+                            <span class="orient-icon">↑</span>
+                            <strong>Up</strong>
+                            <p>Default. Bars rise from keys.</p>
+                        </div>
+                        <div class="orient-card">
+                            <span class="orient-icon">↓</span>
+                            <strong>Down</strong>
+                            <p>Bars fall onto keys from above.</p>
+                        </div>
+                        <div class="orient-card">
+                            <span class="orient-icon">↗</span>
+                            <strong>Angle</strong>
+                            <p>Pitched plane (set <code>Angle</code> in degrees).</p>
+                        </div>
+                    </div>
+                </section>
+
+                <section id="speed">
+                    <h2>Note speed</h2>
+                    <p>
+                        <em>Note Speed</em> controls how fast bars travel between
+                        spawning at the top and landing on the keys. The default is
+                        <code>25.00</code>. Higher values feel urgent and percussive;
+                        lower values feel cinematic and meditative. For ambient piano
+                        pieces, try <code>12–16</code>.
+                    </p>
+                </section>
+
+                <section id="background">
+                    <h2>Background</h2>
+                    <p>
+                        The <em>Background</em> dropdown has two modes:
+                    </p>
+                    <ul class="bulleted-list">
+                        <li>
+                            <strong>Image</strong> — pick a photo or palette from your
+                            library. Crystal shards, deep gradients, and abstract noise
+                            tile cleanly behind the bars.
+                        </li>
+                        <li>
+                            <strong>Color</strong> — solid background. Use this when
+                            note color is doing the heavy lifting and you want clean
+                            negative space.
+                        </li>
+                    </ul>
+                </section>
+
+                <section id="export">
+                    <h2>Export</h2>
+                    <p>
+                        From the editor, click <em>Export</em>. NoteDrifter renders an
+                        MP4 at the resolution and aspect ratio set in
+                        <em>Preferences</em> (default 1920×1080, 60fps). Render time
+                        scales linearly with project length and quality.
+                    </p>
+                    <pre class="code-block"><code># Common export targets
+1920 × 1080  · 60fps  · h264   — YouTube
+1080 × 1920  · 60fps  · h264   — Reels / Shorts / TikTok
+2560 × 1440  · 60fps  · h264   — Premium &amp; thumbnails
+3840 × 2160  · 60fps  · prores — Master / archive</code></pre>
+                </section>
+
+                <section id="shortcuts">
+                    <h2>Shortcuts</h2>
+                    <table class="shortcut-table">
+                        <thead>
+                            <tr><th>Action</th><th>Shortcut</th></tr>
+                        </thead>
+                        <tbody>
+                            <tr><td>Play / pause</td><td><span class="kbd">Space</span></td></tr>
+                            <tr><td>Previous part</td><td><span class="kbd">⌘</span> + <span class="kbd">←</span></td></tr>
+                            <tr><td>Next part</td><td><span class="kbd">⌘</span> + <span class="kbd">→</span></td></tr>
+                            <tr><td>Open Configurations</td><td><span class="kbd">⌘</span> + <span class="kbd">,</span></td></tr>
+                            <tr><td>Toggle fullscreen</td><td><span class="kbd">F</span></td></tr>
+                            <tr><td>Export</td><td><span class="kbd">⌘</span> + <span class="kbd">E</span></td></tr>
+                        </tbody>
+                    </table>
+                </section>
+            </article>
+        </section>
     </main>
 
     <footer class="site-footer">

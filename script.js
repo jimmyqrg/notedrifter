@@ -91,12 +91,33 @@
     }
 
     /* -------------------------------------------------------------- *
+     * Cursor-follow soft light on every [data-cover-light] tile —
+     * each cover image picks up a moving highlight under the pointer.
+     * -------------------------------------------------------------- */
+    if (!prefersReducedMotion) {
+        document.querySelectorAll("[data-cover-light]").forEach((el) => {
+            el.addEventListener("pointermove", (e) => {
+                const rect = el.getBoundingClientRect();
+                const x = ((e.clientX - rect.left) / rect.width) * 100;
+                const y = ((e.clientY - rect.top) / rect.height) * 100;
+                el.style.setProperty("--cursor-x", `${x}%`);
+                el.style.setProperty("--cursor-y", `${y}%`);
+            });
+            el.addEventListener("pointerleave", () => {
+                el.style.setProperty("--cursor-x", `50%`);
+                el.style.setProperty("--cursor-y", `50%`);
+            });
+        });
+    }
+
+    /* -------------------------------------------------------------- *
      * Scroll reveal — applied to common sections
      * -------------------------------------------------------------- */
     const revealTargets = document.querySelectorAll(
         ".intro-text, .feature-tile, .features-lead, .feature-list > li, " +
             ".section-title, .editor-row, .editor-caption, .editor-ui-tile, .editor-demo, " +
-            ".coming-soon-eyebrow, .coming-soon-list li"
+            ".coming-soon-eyebrow, .coming-soon-list li, " +
+            ".docs-body section"
     );
 
     revealTargets.forEach((el, idx) => {
@@ -135,6 +156,35 @@
             target.scrollIntoView({ behavior: "smooth", block: "start" });
         });
     });
+
+    /* -------------------------------------------------------------- *
+     * Docs sidebar — scroll-spy current section
+     * -------------------------------------------------------------- */
+    const sideLinks = document.querySelectorAll(".docs-side-link");
+    const docSections = document.querySelectorAll(".docs-body section[id]");
+    if (sideLinks.length && docSections.length && "IntersectionObserver" in window) {
+        const linkByHash = new Map();
+        sideLinks.forEach((l) => {
+            const href = l.getAttribute("href") || "";
+            if (href.startsWith("#")) linkByHash.set(href.slice(1), l);
+        });
+
+        const ioSpy = new IntersectionObserver(
+            (entries) => {
+                entries.forEach((entry) => {
+                    const id = entry.target.id;
+                    const link = linkByHash.get(id);
+                    if (!link) return;
+                    if (entry.isIntersecting) {
+                        sideLinks.forEach((l) => l.classList.remove("is-current"));
+                        link.classList.add("is-current");
+                    }
+                });
+            },
+            { rootMargin: "-30% 0px -60% 0px", threshold: 0 }
+        );
+        docSections.forEach((s) => ioSpy.observe(s));
+    }
 
     /* -------------------------------------------------------------- *
      * Demo player controls are handled by assets/piano-viz.js.

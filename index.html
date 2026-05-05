@@ -7,7 +7,7 @@
     <title>NoteDrifter — AI music with style and visualization</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@100;200;300;400;500;600&family=Poiret+One&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="styles.css" />
     <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Crect x='4' y='3' width='2' height='14' fill='%23fff'/%3E%3Crect x='9' y='3' width='2' height='14' fill='%23fff'/%3E%3Crect x='14' y='3' width='2' height='14' fill='%23fff'/%3E%3Crect x='3' y='18' width='14' height='2' fill='%23fff'/%3E%3C/svg%3E" />
 </head>
@@ -49,19 +49,19 @@
                 tools to make the music to make a full song.
             </p>
 
-            <!-- Feature image grid -->
+            <!-- Feature image grid (cursor-light hover) -->
             <div class="feature-grid">
-                <figure class="feature-tile">
-                    <img src="assets/images/piano-magenta.png" alt="Piano with magenta visualization" loading="lazy" />
+                <figure class="feature-tile" data-cover-light>
+                    <img src="assets/images/cover-getstarted.png" alt="NoteDrifter Get Started screen — render a video in minutes" loading="lazy" />
                 </figure>
-                <figure class="feature-tile">
-                    <img src="assets/images/piano-blue.png" alt="Piano with blue waveform visualization" loading="lazy" />
+                <figure class="feature-tile" data-cover-light>
+                    <img src="assets/images/cover-newproject.png" alt="NoteDrifter New Project screen — create from scratch or import" loading="lazy" />
                 </figure>
-                <figure class="feature-tile">
-                    <img src="assets/images/piano-purple.png" alt="Piano with purple visualization" loading="lazy" />
+                <figure class="feature-tile" data-cover-light>
+                    <img src="assets/images/cover-noprojects.png" alt="NoteDrifter Dashboard with no projects yet" loading="lazy" />
                 </figure>
-                <figure class="feature-tile">
-                    <img src="assets/images/shards-small.png" alt="Crystalline shards" loading="lazy" />
+                <figure class="feature-tile" data-cover-light>
+                    <img src="assets/images/cover-signup.png" alt="NoteDrifter Sign up for free screen" loading="lazy" />
                 </figure>
             </div>
 
@@ -90,8 +90,8 @@
         <section class="editor-examples">
             <h2 class="section-title">EDITOR EXAMPLES</h2>
 
-            <figure class="editor-row">
-                <img src="assets/images/editor-row.png" alt="Multiple piano keyboards with magenta visualization" loading="lazy" />
+            <figure class="editor-row" data-cover-light>
+                <img src="assets/images/editor-row.png" alt="Tiled gallery of NoteDrifter editor screenshots" loading="lazy" />
             </figure>
 
             <p class="editor-caption">
@@ -100,11 +100,11 @@
             </p>
 
             <div class="editor-ui-grid">
-                <figure class="editor-ui-tile">
-                    <img src="assets/images/editor-ui-1.png" alt="NoteDrifter editor with pink and orange notes" loading="lazy" />
+                <figure class="editor-ui-tile" data-cover-light>
+                    <img src="assets/images/editor-config.png" alt="NoteDrifter editor with the Configurations / Project Settings dialog open" loading="lazy" />
                 </figure>
-                <figure class="editor-ui-tile">
-                    <img src="assets/images/editor-ui-2.png" alt="NoteDrifter editor with blue notes" loading="lazy" />
+                <figure class="editor-ui-tile" data-cover-light>
+                    <img src="assets/images/editor-fullscreen.png" alt="NoteDrifter editor in fullscreen with the Embers track playing" loading="lazy" />
                 </figure>
             </div>
 
@@ -113,7 +113,7 @@
                 <canvas class="piano-canvas" aria-hidden="true"></canvas>
                 <div class="piano-keys" aria-hidden="true"></div>
                 <noscript>
-                    <img src="assets/images/piano-demo.png" alt="Piano keyboard with rising neon note bars" />
+                    <img src="assets/images/editor-fullscreen.png" alt="Piano keyboard with rising neon note bars" />
                 </noscript>
                 <figcaption class="editor-demo-watermark">Embed</figcaption>
                 <div class="editor-demo-controls">

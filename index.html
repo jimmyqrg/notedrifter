@@ -3,11 +3,11 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="NoteDrifter is a piano visualization tool. AI tools that create the visualization. AI tools to make the music to make a full song." />
-    <title>NoteDrifter — AI music with style and visualization</title>
+    <meta name="description" content="NoteDrifter is an advanced MIDI visualizer—turn performances into neon piano-roll videos with deep customization and efficient rendering." />
+    <title>NoteDrifter — Advanced MIDI Visualizer</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;1,200;1,300;1,400&family=Poiret+One&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Inter:wght@200;300;400;500&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="styles.css" />
     <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Crect x='4' y='3' width='2' height='14' fill='%23fff'/%3E%3Crect x='9' y='3' width='2' height='14' fill='%23fff'/%3E%3Crect x='14' y='3' width='2' height='14' fill='%23fff'/%3E%3Crect x='3' y='18' width='14' height='2' fill='%23fff'/%3E%3C/svg%3E" />
 </head>
@@ -23,7 +23,8 @@
         <nav class="nav" aria-label="Primary">
             <a href="index.html" class="nav-link nav-link--active">Home</a>
             <a href="docs.html" class="nav-link">Docs</a>
-            <a href="demo-reel.html" class="nav-link">Demo Reel</a>
+            <a href="https://discord.com" class="nav-link" target="_blank" rel="noopener noreferrer">Discord</a>
+            <a href="#download" class="nav-link">Download</a>
         </nav>
     </header>
 
@@ -36,17 +37,15 @@
                     <span></span><span></span><span></span>
                 </span>
                 <h1 class="hero-title">NoteDrifter</h1>
-                <p class="hero-tagline">AI music with style and visualization</p>
+                <p class="hero-tagline">An Advanced MIDI Visualizer</p>
                 <a href="#get-started" class="btn btn--ghost">Get Started</a>
             </div>
         </section>
 
         <!-- Intro / Description -->
-        <section class="intro">
+        <section class="intro" id="get-started">
             <p class="intro-text">
-                NoteDrifter is a piano visualization tool. AI
-                tools that create the visualization. AI
-                tools to make the music to make a full song.
+                NoteDrifter turns MIDI into cinematic piano-roll visuals—neon notes, a reactive keyboard, and exports you can share. Built for creators who want motion that feels premium without a heavyweight pipeline.
             </p>
 
             <!-- Feature image grid (cursor-light hover) -->
@@ -67,20 +66,19 @@
 
             <!-- Features list -->
             <div class="features">
-                <p class="features-lead">We have access to:</p>
+                <p class="features-lead">Why choose us?</p>
                 <ul class="feature-list">
                     <li>
                         <strong>Quality</strong>
-                        <p>A piece of grand quality, important details and multi stream of music to enjoy.</p>
-                        <p>A piece graphic quality, one of the best out there in latest version too.</p>
+                        <p>Crisp rendering with accurate timing and rich color so every performance reads clearly on screen.</p>
                     </li>
                     <li>
-                        <strong>Function</strong>
-                        <p>We have a variety of tools that allow you to use any video you have, the style or the type of stream of any video out there.</p>
+                        <strong>Freedom</strong>
+                        <p>Customize note colors, orientation, backgrounds, and pacing so the picture matches your music—not a preset.</p>
                     </li>
                     <li>
-                        <strong>Library</strong>
-                        <p>A piece video markers should not, we have to have access in just our network programs that have to share by you those out for those of music.</p>
+                        <strong>Efficiency</strong>
+                        <p>Responsive playback and a focused editor so you move from import to export without friction.</p>
                     </li>
                 </ul>
             </div>
@@ -96,8 +94,7 @@
             </figure>
 
             <p class="editor-caption">
-                You can change the color of every line if you wish. You
-                can also change the orientation of the granite to time visible.
+                You can change the color of every note, meaning you can also change the color of the notes in the video.
             </p>
 
             <div class="editor-ui-grid">
@@ -109,23 +106,28 @@
                 </figure>
             </div>
 
-            <!-- Live interactive piano visualizer -->
-            <figure class="editor-demo" data-piano-viz>
-                <canvas class="piano-canvas" aria-hidden="true"></canvas>
-                <div class="piano-keys" aria-hidden="true"></div>
-                <noscript>
-                    <img src="assets/images/editor-fullscreen.png" alt="Piano keyboard with rising neon note bars" />
-                </noscript>
-                <figcaption class="editor-demo-watermark">Embed</figcaption>
+            <figure class="editor-demo" id="download">
+                <img
+                    src="assets/images/editor-fullscreen.png"
+                    alt="NoteDrifter main view—neon MIDI bars over a piano keyboard"
+                    width="1600"
+                    height="900"
+                    loading="lazy"
+                    decoding="async"
+                />
+                <span class="editor-demo-script" aria-hidden="true">Endless</span>
+                <button type="button" class="editor-demo-fs" aria-label="Fullscreen preview">
+                    <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path fill="currentColor" d="M7 14H5v5h5v-2H7v-3zm-2-4h2V7h3V5H5v5zm12 7h-3v2h5v-5h-2v3zM14 5v2h3v3h2V5h-5z"/></svg>
+                </button>
                 <div class="editor-demo-controls">
-                    <button class="ctrl-btn" data-action="prev" aria-label="Previous track">
-                        <svg viewBox="0 0 24 24" width="14" height="14"><path fill="currentColor" d="M6 6h2v12H6V6zm3.5 6l8.5 6V6l-8.5 6z"/></svg>
+                    <button type="button" class="ctrl-btn" data-demo-prev aria-label="Previous">
+                        <svg viewBox="0 0 24 24" width="14" height="14" aria-hidden="true"><path fill="currentColor" d="M6 6h2v12H6V6zm3.5 6l8.5 6V6l-8.5 6z"/></svg>
                     </button>
-                    <button class="ctrl-btn ctrl-btn--play" data-action="play" aria-label="Play / pause">
-                        <svg viewBox="0 0 24 24" width="14" height="14"><path fill="currentColor" d="M6 5h4v14H6V5zm8 0h4v14h-4V5z"/></svg>
+                    <button type="button" class="ctrl-btn ctrl-btn--play" data-demo-play aria-label="Play / pause">
+                        <svg viewBox="0 0 24 24" width="14" height="14" aria-hidden="true"><path fill="currentColor" d="M8 5v14l11-7z"/></svg>
                     </button>
-                    <button class="ctrl-btn" data-action="next" aria-label="Next track">
-                        <svg viewBox="0 0 24 24" width="14" height="14"><path fill="currentColor" d="M6 18l8.5-6L6 6v12zM16 6h2v12h-2V6z"/></svg>
+                    <button type="button" class="ctrl-btn" data-demo-next aria-label="Next">
+                        <svg viewBox="0 0 24 24" width="14" height="14" aria-hidden="true"><path fill="currentColor" d="M6 18l8.5-6L6 6v12zM16 6h2v12h-2V6z"/></svg>
                     </button>
                 </div>
             </figure>
@@ -133,10 +135,9 @@
     </main>
 
     <footer class="site-footer">
-        <p>© <span id="year"></span> NoteDrifter · Made with sound &amp; light · Crafted by NoteDrifter</p>
+        <p>© <span id="year"></span> NoteDrifter</p>
     </footer>
 
     <script src="script.js" defer></script>
-    <script src="assets/piano-viz.js" defer></script>
 </body>
 </html>

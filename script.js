@@ -28,17 +28,9 @@
     }
 
     /* -------------------------------------------------------------- *
-     * Sticky header + scroll progress bar
+     * Sticky header + hero parallax (home)
      * -------------------------------------------------------------- */
     const header = document.querySelector(".site-header");
-
-    let progressBar = document.querySelector(".scroll-progress");
-    if (!progressBar) {
-        progressBar = document.createElement("div");
-        progressBar.className = "scroll-progress";
-        progressBar.setAttribute("aria-hidden", "true");
-        document.body.appendChild(progressBar);
-    }
 
     let ticking = false;
     const onScroll = () => {
@@ -50,10 +42,6 @@
                 if (y > 12) header.classList.add("is-scrolled");
                 else header.classList.remove("is-scrolled");
             }
-            const max =
-                document.documentElement.scrollHeight - window.innerHeight;
-            const pct = max > 0 ? Math.min(y / max, 1) : 0;
-            progressBar.style.transform = `scaleX(${pct})`;
 
             // Hero parallax — only on the home page
             if (heroBg && !prefersReducedMotion) {
@@ -187,6 +175,24 @@
     }
 
     /* -------------------------------------------------------------- *
-     * Demo player controls are handled by assets/piano-viz.js.
+     * Visualizer preview — fullscreen shell (decorative transport stays visual-only)
      * -------------------------------------------------------------- */
+    const editorDemo = document.querySelector(".editor-demo");
+    const fsBtn = document.querySelector(".editor-demo-fs");
+    if (editorDemo && fsBtn) {
+        fsBtn.addEventListener("click", () => {
+            if (!document.fullscreenElement) {
+                editorDemo.requestFullscreen?.().catch(() => {});
+            } else {
+                document.exitFullscreen?.().catch(() => {});
+            }
+        });
+        document.addEventListener("fullscreenchange", () => {
+            const isFs = document.fullscreenElement === editorDemo;
+            fsBtn.setAttribute(
+                "aria-label",
+                isFs ? "Exit fullscreen preview" : "Fullscreen preview"
+            );
+        });
+    }
 })();

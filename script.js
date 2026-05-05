@@ -15,6 +15,10 @@
      * -------------------------------------------------------------- */
     document.body.classList.add("js-ready");
 
+    const prefersReducedMotion = window.matchMedia(
+        "(prefers-reduced-motion: reduce)"
+    ).matches;
+
     /* -------------------------------------------------------------- *
      * Footer year
      * -------------------------------------------------------------- */
@@ -24,26 +28,75 @@
     }
 
     /* -------------------------------------------------------------- *
-     * Sticky header on scroll
+     * Sticky header + scroll progress bar
      * -------------------------------------------------------------- */
     const header = document.querySelector(".site-header");
+
+    let progressBar = document.querySelector(".scroll-progress");
+    if (!progressBar) {
+        progressBar = document.createElement("div");
+        progressBar.className = "scroll-progress";
+        progressBar.setAttribute("aria-hidden", "true");
+        document.body.appendChild(progressBar);
+    }
+
+    let ticking = false;
     const onScroll = () => {
-        if (!header) return;
-        if (window.scrollY > 12) {
-            header.classList.add("is-scrolled");
-        } else {
-            header.classList.remove("is-scrolled");
-        }
+        if (ticking) return;
+        ticking = true;
+        requestAnimationFrame(() => {
+            const y = window.scrollY;
+            if (header) {
+                if (y > 12) header.classList.add("is-scrolled");
+                else header.classList.remove("is-scrolled");
+            }
+            const max =
+                document.documentElement.scrollHeight - window.innerHeight;
+            const pct = max > 0 ? Math.min(y / max, 1) : 0;
+            progressBar.style.transform = `scaleX(${pct})`;
+
+            // Hero parallax — only on the home page
+            if (heroBg && !prefersReducedMotion) {
+                const intensity = Math.min(y / window.innerHeight, 1);
+                heroBg.style.transform = `translate3d(0, ${y * 0.18}px, 0) scale(${1 + intensity * 0.04})`;
+            }
+            if (heroContent && !prefersReducedMotion) {
+                const intensity = Math.min(y / window.innerHeight, 1);
+                heroContent.style.transform = `translate3d(0, ${y * 0.06}px, 0)`;
+                heroContent.style.opacity = String(1 - intensity * 0.5);
+            }
+
+            ticking = false;
+        });
     };
+
+    const heroBg = document.querySelector(".hero-bg");
+    const heroContent = document.querySelector(".hero-content");
+
     window.addEventListener("scroll", onScroll, { passive: true });
     onScroll();
 
     /* -------------------------------------------------------------- *
-     * Scroll reveal — applied to common sections
+     * Cursor-follow glow on the hero (home only)
+     * -------------------------------------------------------------- */
+    const hero = document.querySelector(".hero");
+    if (hero && !prefersReducedMotion) {
+        hero.addEventListener("pointermove", (e) => {
+            const rect = hero.getBoundingClientRect();
+            const x = ((e.clientX - rect.left) / rect.width) * 100;
+            const y = ((e.clientY - rect.top) / rect.height) * 100;
+            hero.style.setProperty("--cursor-x", `${x}%`);
+            hero.style.setProperty("--cursor-y", `${y}%`);
+        });
+    }
+
+    /* -------------------------------------------------------------- *
+     * Scroll reveal — applied to common sections (home + inner pages)
      * -------------------------------------------------------------- */
     const revealTargets = document.querySelectorAll(
         ".intro-text, .feature-tile, .features-lead, .feature-list > li, " +
-            ".section-title, .editor-row, .editor-caption, .editor-ui-tile, .editor-demo"
+            ".section-title, .editor-row, .editor-caption, .editor-ui-tile, .editor-demo, " +
+            ".page-head, .docs-body section, .reel-demo, .reel-cta"
     );
 
     revealTargets.forEach((el, idx) => {
@@ -84,20 +137,35 @@
     });
 
     /* -------------------------------------------------------------- *
-     * Demo player play / pause toggle (visual only)
+     * Docs sidebar — scroll-spy current section
      * -------------------------------------------------------------- */
-    const playBtn = document.querySelector(".ctrl-btn--play");
-    if (playBtn) {
-        let playing = false;
-        const playIcon =
-            '<svg viewBox="0 0 24 24" width="14" height="14"><path fill="currentColor" d="M8 5v14l11-7z"/></svg>';
-        const pauseIcon =
-            '<svg viewBox="0 0 24 24" width="14" height="14"><path fill="currentColor" d="M6 5h4v14H6V5zm8 0h4v14h-4V5z"/></svg>';
-
-        playBtn.addEventListener("click", () => {
-            playing = !playing;
-            playBtn.innerHTML = playing ? pauseIcon : playIcon;
-            playBtn.setAttribute("aria-label", playing ? "Pause" : "Play");
+    const sideLinks = document.querySelectorAll(".docs-side-link");
+    const docSections = document.querySelectorAll(".docs-body section[id]");
+    if (sideLinks.length && docSections.length && "IntersectionObserver" in window) {
+        const linkByHash = new Map();
+        sideLinks.forEach((l) => {
+            const href = l.getAttribute("href") || "";
+            if (href.startsWith("#")) linkByHash.set(href.slice(1), l);
         });
+
+        const ioSpy = new IntersectionObserver(
+            (entries) => {
+                entries.forEach((entry) => {
+                    const id = entry.target.id;
+                    const link = linkByHash.get(id);
+                    if (!link) return;
+                    if (entry.isIntersecting) {
+                        sideLinks.forEach((l) => l.classList.remove("is-current"));
+                        link.classList.add("is-current");
+                    }
+                });
+            },
+            { rootMargin: "-30% 0px -60% 0px", threshold: 0 }
+        );
+        docSections.forEach((s) => ioSpy.observe(s));
     }
+
+    /* -------------------------------------------------------------- *
+     * Demo player controls are handled by assets/piano-viz.js.
+     * -------------------------------------------------------------- */
 })();

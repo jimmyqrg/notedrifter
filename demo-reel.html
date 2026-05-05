@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="NoteDrifter demo reel — a live playground of piano visualizations, palettes and orientations." />
+    <title>Demo Reel — NoteDrifter</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Crect x='4' y='3' width='2' height='14' fill='%23fff'/%3E%3Crect x='9' y='3' width='2' height='14' fill='%23fff'/%3E%3Crect x='14' y='3' width='2' height='14' fill='%23fff'/%3E%3Crect x='3' y='18' width='14' height='2' fill='%23fff'/%3E%3C/svg%3E" />
+</head>
+<body class="page-reel">
+    <header class="site-header">
+        <a href="index.html" class="brand" aria-label="NoteDrifter home">
+            <span class="brand-mark" aria-hidden="true">
+                <span></span><span></span><span></span>
+            </span>
+            <span class="brand-text">NoteDrifter</span>
+        </a>
+        <nav class="nav" aria-label="Primary">
+            <a href="index.html" class="nav-link">Home</a>
+            <a href="docs.html" class="nav-link">Docs</a>
+            <a href="demo-reel.html" class="nav-link nav-link--active">Demo Reel</a>
+        </nav>
+    </header>
+
+    <main class="page">
+        <section class="page-head">
+            <p class="eyebrow">Demo Reel</p>
+            <h1 class="page-title">Live, every frame</h1>
+            <p class="page-lead">Six instances of the same engine, each with a different preset. Hover any panel to focus it; click <span class="kbd">▶</span> to swap melodies.</p>
+        </section>
+
+        <section class="reel-grid">
+            <figure class="editor-demo reel-demo" data-piano-viz>
+                <canvas class="piano-canvas" aria-hidden="true"></canvas>
+                <div class="piano-keys" aria-hidden="true"></div>
+                <figcaption class="reel-caption">
+                    <span class="reel-tag">Drift</span>
+                    <span class="reel-meta">88 keys · Pink / Magenta / Cyan</span>
+                </figcaption>
+                <div class="editor-demo-controls">
+                    <button class="ctrl-btn" data-action="prev" aria-label="Previous track">
+                        <svg viewBox="0 0 24 24" width="14" height="14"><path fill="currentColor" d="M6 6h2v12H6V6zm3.5 6l8.5 6V6l-8.5 6z"/></svg>
+                    </button>
+                    <button class="ctrl-btn ctrl-btn--play" data-action="play" aria-label="Play / pause">
+                        <svg viewBox="0 0 24 24" width="14" height="14"><path fill="currentColor" d="M6 5h4v14H6V5zm8 0h4v14h-4V5z"/></svg>
+                    </button>
+                    <button class="ctrl-btn" data-action="next" aria-label="Next track">
+                        <svg viewBox="0 0 24 24" width="14" height="14"><path fill="currentColor" d="M6 18l8.5-6L6 6v12zM16 6h2v12h-2V6z"/></svg>
+                    </button>
+                </div>
+            </figure>
+
+            <figure class="editor-demo reel-demo reel-demo--aurora" data-piano-viz data-palette="aurora">
+                <canvas class="piano-canvas" aria-hidden="true"></canvas>
+                <div class="piano-keys" aria-hidden="true"></div>
+                <figcaption class="reel-caption">
+                    <span class="reel-tag">Aurora</span>
+                    <span class="reel-meta">Cool gradient · Slow rise</span>
+                </figcaption>
+                <div class="editor-demo-controls">
+                    <button class="ctrl-btn" data-action="prev" aria-label="Previous track">
+                        <svg viewBox="0 0 24 24" width="14" height="14"><path fill="currentColor" d="M6 6h2v12H6V6zm3.5 6l8.5 6V6l-8.5 6z"/></svg>
+                    </button>
+                    <button class="ctrl-btn ctrl-btn--play" data-action="play" aria-label="Play / pause">
+                        <svg viewBox="0 0 24 24" width="14" height="14"><path fill="currentColor" d="M6 5h4v14H6V5zm8 0h4v14h-4V5z"/></svg>
+                    </button>
+                    <button class="ctrl-btn" data-action="next" aria-label="Next track">
+                        <svg viewBox="0 0 24 24" width="14" height="14"><path fill="currentColor" d="M6 18l8.5-6L6 6v12zM16 6h2v12h-2V6z"/></svg>
+                    </button>
+                </div>
+            </figure>
+
+            <figure class="editor-demo reel-demo reel-demo--ember" data-piano-viz data-palette="ember">
+                <canvas class="piano-canvas" aria-hidden="true"></canvas>
+                <div class="piano-keys" aria-hidden="true"></div>
+                <figcaption class="reel-caption">
+                    <span class="reel-tag">Ember</span>
+                    <span class="reel-meta">Warm reds · Fast strikes</span>
+                </figcaption>
+                <div class="editor-demo-controls">
+                    <button class="ctrl-btn" data-action="prev" aria-label="Previous track">
+                        <svg viewBox="0 0 24 24" width="14" height="14"><path fill="currentColor" d="M6 6h2v12H6V6zm3.5 6l8.5 6V6l-8.5 6z"/></svg>
+                    </button>
+                    <button class="ctrl-btn ctrl-btn--play" data-action="play" aria-label="Play / pause">
+                        <svg viewBox="0 0 24 24" width="14" height="14"><path fill="currentColor" d="M6 5h4v14H6V5zm8 0h4v14h-4V5z"/></svg>
+                    </button>
+                    <button class="ctrl-btn" data-action="next" aria-label="Next track">
+                        <svg viewBox="0 0 24 24" width="14" height="14"><path fill="currentColor" d="M6 18l8.5-6L6 6v12zM16 6h2v12h-2V6z"/></svg>
+                    </button>
+                </div>
+            </figure>
+
+            <figure class="editor-demo reel-demo reel-demo--mono" data-piano-viz data-palette="mono">
+                <canvas class="piano-canvas" aria-hidden="true"></canvas>
+                <div class="piano-keys" aria-hidden="true"></div>
+                <figcaption class="reel-caption">
+                    <span class="reel-tag">Mono</span>
+                    <span class="reel-meta">Black &amp; white · Editorial</span>
+                </figcaption>
+                <div class="editor-demo-controls">
+                    <button class="ctrl-btn" data-action="prev" aria-label="Previous track">
+                        <svg viewBox="0 0 24 24" width="14" height="14"><path fill="currentColor" d="M6 6h2v12H6V6zm3.5 6l8.5 6V6l-8.5 6z"/></svg>
+                    </button>
+                    <button class="ctrl-btn ctrl-btn--play" data-action="play" aria-label="Play / pause">
+                        <svg viewBox="0 0 24 24" width="14" height="14"><path fill="currentColor" d="M6 5h4v14H6V5zm8 0h4v14h-4V5z"/></svg>
+                    </button>
+                    <button class="ctrl-btn" data-action="next" aria-label="Next track">
+                        <svg viewBox="0 0 24 24" width="14" height="14"><path fill="currentColor" d="M6 18l8.5-6L6 6v12zM16 6h2v12h-2V6z"/></svg>
+                    </button>
+                </div>
+            </figure>
+
+            <figure class="editor-demo reel-demo reel-demo--candy" data-piano-viz data-palette="candy">
+                <canvas class="piano-canvas" aria-hidden="true"></canvas>
+                <div class="piano-keys" aria-hidden="true"></div>
+                <figcaption class="reel-caption">
+                    <span class="reel-tag">Candy</span>
+                    <span class="reel-meta">Pastel pinks &amp; yellows</span>
+                </figcaption>
+                <div class="editor-demo-controls">
+                    <button class="ctrl-btn" data-action="prev" aria-label="Previous track">
+                        <svg viewBox="0 0 24 24" width="14" height="14"><path fill="currentColor" d="M6 6h2v12H6V6zm3.5 6l8.5 6V6l-8.5 6z"/></svg>
+                    </button>
+                    <button class="ctrl-btn ctrl-btn--play" data-action="play" aria-label="Play / pause">
+                        <svg viewBox="0 0 24 24" width="14" height="14"><path fill="currentColor" d="M6 5h4v14H6V5zm8 0h4v14h-4V5z"/></svg>
+                    </button>
+                    <button class="ctrl-btn" data-action="next" aria-label="Next track">
+                        <svg viewBox="0 0 24 24" width="14" height="14"><path fill="currentColor" d="M6 18l8.5-6L6 6v12zM16 6h2v12h-2V6z"/></svg>
+                    </button>
+                </div>
+            </figure>
+
+            <figure class="editor-demo reel-demo reel-demo--neon" data-piano-viz data-palette="neon">
+                <canvas class="piano-canvas" aria-hidden="true"></canvas>
+                <div class="piano-keys" aria-hidden="true"></div>
+                <figcaption class="reel-caption">
+                    <span class="reel-tag">Neon</span>
+                    <span class="reel-meta">Saturated · Heavy bloom</span>
+                </figcaption>
+                <div class="editor-demo-controls">
+                    <button class="ctrl-btn" data-action="prev" aria-label="Previous track">
+                        <svg viewBox="0 0 24 24" width="14" height="14"><path fill="currentColor" d="M6 6h2v12H6V6zm3.5 6l8.5 6V6l-8.5 6z"/></svg>
+                    </button>
+                    <button class="ctrl-btn ctrl-btn--play" data-action="play" aria-label="Play / pause">
+                        <svg viewBox="0 0 24 24" width="14" height="14"><path fill="currentColor" d="M6 5h4v14H6V5zm8 0h4v14h-4V5z"/></svg>
+                    </button>
+                    <button class="ctrl-btn" data-action="next" aria-label="Next track">
+                        <svg viewBox="0 0 24 24" width="14" height="14"><path fill="currentColor" d="M6 18l8.5-6L6 6v12zM16 6h2v12h-2V6z"/></svg>
+                    </button>
+                </div>
+            </figure>
+        </section>
+
+        <section class="reel-cta">
+            <h2>Embed any of these on your site</h2>
+            <p>Every preset on this page is a single iframe away. Copy the snippet, drop it into your CMS, and you're streaming.</p>
+            <pre class="code-block"><code>&lt;iframe src="https://embed.notedrifter.app/aurora?midi=track-04"
+        width="960" height="540" loading="lazy"
+        allowfullscreen&gt;&lt;/iframe&gt;</code></pre>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <p>© <span id="year"></span> NoteDrifter · Made with sound &amp; light · Crafted by NoteDrifter</p>
+    </footer>
+
+    <script src="script.js" defer></script>
+    <script src="assets/piano-viz.js" defer></script>
+</body>
+</html>
